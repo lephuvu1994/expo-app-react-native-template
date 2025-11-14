@@ -18,6 +18,7 @@ const z = require('zod');
 const packageJSON = require('./package.json');
 const path = require('path');
 const APP_ENV = process.env.APP_ENV ?? 'development';
+// eslint-disable-next-line no-undef
 const envPath = path.resolve(__dirname, `.env.${APP_ENV}`);
 
 require('dotenv').config({
@@ -29,18 +30,17 @@ require('dotenv').config({
  * Such as: bundle id, package name, app name.
  *
  * You can add them to the .env file but we think it's better to keep them here as as we use prefix to generate this values based on the APP_ENV
- * for example: if the APP_ENV is staging, the bundle id will be com.obytes.staging
+ * for example: if the APP_ENV is staging, the bundle id will be com.itule.safiri.staging
  */
 
 // TODO: Replace these values with your own
 
-const BUNDLE_ID = 'com.obytes'; // ios bundle id
-const PACKAGE = 'com.obytes'; // android package name
-const NAME = 'ObytesApp'; // app name
-const EXPO_ACCOUNT_OWNER = 'obytes'; // expo account owner
-const EAS_PROJECT_ID = 'c3e1075b-6fe7-4686-aa49-35b46a229044'; // eas project id
-const SCHEME = 'obytesApp'; // app scheme
-
+const BUNDLE_ID = 'EuroSol'; // ios bundle id
+const PACKAGE = 'EuroSolAndroid'; // android package name
+const NAME = 'EuroSol'; // app name
+const EXPO_ACCOUNT_OWNER = 'vule94'; // expo account owner
+const EAS_PROJECT_ID = 'cac68faf-437c-429b-9739-907402d5e399'; // eas project id
+const SCHEME = 'eecApp'; // app scheme
 /**
  * We declare a function withEnvSuffix that will add a suffix to the variable name based on the APP_ENV
  * Add a suffix to variable env based on APP_ENV
@@ -80,15 +80,37 @@ const client = z.object({
 
   // ADD YOUR CLIENT ENV VARS HERE
   API_URL: z.string(),
-  VAR_NUMBER: z.number(),
-  VAR_BOOL: z.boolean(),
+  WEBSOCKET_URL: z.string(),
+  SPOTIFY_CLIENT_ID: z.string(),
+  SPOTIFY_CLIENT_SECRET: z.string(),
+  CLOUDINARY_UPLOAD_CLOUD_NAME: z.string(),
+  CLOUDINARY_UPLOAD_API_KEY: z.string(),
+  CLOUDINARY_UPLOAD_API_SECRET: z.string(),
+  CLOUDINARY_UPLOAD_PRESET: z.string(),
+  PORT_SERVER: z.string(),
+  CLOUDINARY_UPLOAD_ASSET_CLOUD_NAME: z.string(),
+  CLOUDINARY_UPLOAD_ASSET_API_KEY: z.string(),
+  CLOUDINARY_UPLOAD_ASSET_API_SECRET: z.string(),
+  CLOUDINARY_UPLOAD_ASSET_PRESET: z.string(),
 });
 
 const buildTime = z.object({
   EXPO_ACCOUNT_OWNER: z.string(),
   EAS_PROJECT_ID: z.string(),
   // ADD YOUR BUILD TIME ENV VARS HERE
-  SECRET_KEY: z.string(),
+  API_URL: z.string(),
+  WEBSOCKET_URL: z.string(),
+  SPOTIFY_CLIENT_ID: z.string(),
+  SPOTIFY_CLIENT_SECRET: z.string(),
+  CLOUDINARY_UPLOAD_CLOUD_NAME: z.string(),
+  CLOUDINARY_UPLOAD_API_KEY: z.string(),
+  CLOUDINARY_UPLOAD_API_SECRET: z.string(),
+  CLOUDINARY_UPLOAD_PRESET: z.string(),
+  PORT_SERVER: z.string(),
+  CLOUDINARY_UPLOAD_ASSET_CLOUD_NAME: z.string(),
+  CLOUDINARY_UPLOAD_ASSET_API_KEY: z.string(),
+  CLOUDINARY_UPLOAD_ASSET_API_SECRET: z.string(),
+  CLOUDINARY_UPLOAD_ASSET_PRESET: z.string(),
 });
 
 /**
@@ -103,9 +125,19 @@ const _clientEnv = {
   VERSION: packageJSON.version,
 
   // ADD YOUR ENV VARS HERE TOO
-  API_URL: process.env.API_URL,
-  VAR_NUMBER: Number(process.env.VAR_NUMBER),
-  VAR_BOOL: process.env.VAR_BOOL === 'true',
+  API_URL: process.env.API_URL + '/api/v1',
+  WEBSOCKET_URL: process.env.WEBSOCKET_URL ?? process.env.API_URL,
+  SPOTIFY_CLIENT_ID: process.env.SPOTIFY_CLIENT_ID,
+  SPOTIFY_CLIENT_SECRET: process.env.SPOTIFY_CLIENT_SECRET,
+  CLOUDINARY_UPLOAD_CLOUD_NAME: process.env.CLOUDINARY_UPLOAD_CLOUD_NAME,
+  CLOUDINARY_UPLOAD_API_KEY: process.env.CLOUDINARY_UPLOAD_API_KEY,
+  CLOUDINARY_UPLOAD_API_SECRET: process.env.CLOUDINARY_UPLOAD_API_SECRET,
+  CLOUDINARY_UPLOAD_PRESET: process.env.CLOUDINARY_UPLOAD_PRESET,
+  PORT_SERVER: process.env.PORT_SERVER,
+  CLOUDINARY_UPLOAD_ASSET_CLOUD_NAME: process.env.CLOUDINARY_UPLOAD_ASSET_CLOUD_NAME,
+  CLOUDINARY_UPLOAD_ASSET_API_KEY: process.env.CLOUDINARY_UPLOAD_ASSET_API_KEY,
+  CLOUDINARY_UPLOAD_ASSET_API_SECRET: process.env.CLOUDINARY_UPLOAD_ASSET_API_SECRET,
+  CLOUDINARY_UPLOAD_ASSET_PRESET: process.env.CLOUDINARY_UPLOAD_ASSET_PRESET,
 };
 
 /**
@@ -115,7 +147,19 @@ const _buildTimeEnv = {
   EXPO_ACCOUNT_OWNER,
   EAS_PROJECT_ID,
   // ADD YOUR ENV VARS HERE TOO
-  SECRET_KEY: process.env.SECRET_KEY,
+  API_URL: process.env.API_URL + '/api/v1',
+  WEBSOCKET_URL: process.env.WEBSOCKET_URL ?? process.env.API_URL,
+  SPOTIFY_CLIENT_ID: process.env.SPOTIFY_CLIENT_ID,
+  SPOTIFY_CLIENT_SECRET: process.env.SPOTIFY_CLIENT_SECRET,
+  CLOUDINARY_UPLOAD_CLOUD_NAME: process.env.CLOUDINARY_UPLOAD_CLOUD_NAME,
+  CLOUDINARY_UPLOAD_API_KEY: process.env.CLOUDINARY_UPLOAD_API_KEY,
+  CLOUDINARY_UPLOAD_API_SECRET: process.env.CLOUDINARY_UPLOAD_API_SECRET,
+  CLOUDINARY_UPLOAD_PRESET: process.env.CLOUDINARY_UPLOAD_PRESET,
+  PORT_SERVER: process.env.PORT_SERVER,
+  CLOUDINARY_UPLOAD_ASSET_CLOUD_NAME: process.env.CLOUDINARY_UPLOAD_ASSET_CLOUD_NAME,
+  CLOUDINARY_UPLOAD_ASSET_API_KEY: process.env.CLOUDINARY_UPLOAD_ASSET_API_KEY,
+  CLOUDINARY_UPLOAD_ASSET_API_SECRET: process.env.CLOUDINARY_UPLOAD_ASSET_API_SECRET,
+  CLOUDINARY_UPLOAD_ASSET_PRESET: process.env.CLOUDINARY_UPLOAD_ASSET_PRESET,
 };
 
 /**

@@ -5,19 +5,14 @@ import { useForm } from 'react-hook-form';
 import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
 import * as z from 'zod';
 
-import { Button, ControlledInput, Text, View } from '@/ui';
+import { Button, ControlledInput, Text, View } from '@/components/ui';
 
 const schema = z.object({
   name: z.string().optional(),
-  email: z
-    .string({
-      required_error: 'Email is required',
-    })
-    .email('Invalid email format'),
+  email: z.email({ message: 'Invalid email format' }),
   password: z
-    .string({
-      required_error: 'Password is required',
-    })
+    .string()
+    .min(1, { message: 'Password is required' })
     .min(6, 'Password must be at least 6 characters'),
 });
 
@@ -30,6 +25,11 @@ export type LoginFormProps = {
 export const LoginForm = ({ onSubmit = () => {} }: LoginFormProps) => {
   const { handleSubmit, control } = useForm<FormType>({
     resolver: zodResolver(schema),
+    defaultValues: {
+      name: '',
+      email: '',
+      password: '',
+    },
   });
   return (
     <KeyboardAvoidingView
@@ -38,9 +38,19 @@ export const LoginForm = ({ onSubmit = () => {} }: LoginFormProps) => {
       keyboardVerticalOffset={10}
     >
       <View className="flex-1 justify-center p-4">
-        <Text testID="form-title" className="pb-6 text-center text-2xl">
-          Sign In
-        </Text>
+        <View className="items-center justify-center">
+          <Text
+            testID="form-title"
+            className="pb-6 text-center text-4xl font-bold"
+          >
+            Sign In
+          </Text>
+
+          <Text className="mb-6 max-w-xs text-center text-gray-500">
+            Welcome! 👋 This is a demo login screen! Feel free to use any email
+            and password to sign in and try it out.
+          </Text>
+        </View>
 
         <ControlledInput
           testID="name"

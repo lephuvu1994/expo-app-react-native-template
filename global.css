@@ -1,3 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root {
+    --radius: 0.625rem;
+    --background: oklch(0.9752 0.0034 247.858);
+    --foreground: oklch(0.36 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.36 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.36 0 0);
+    --primary: oklch(0.5762 0.2213 27.039);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.5638 0.1427 245.282);
+    --secondary-foreground: oklch(1 0 0);
+    --muted: oklch(0.7369 0.0756 235.0632);
+    --muted-foreground: oklch(0.36 0 0);
+    --muted2: oklch(0.8944 0.0295 233.63);
+    --muted2-foreground: oklch(0.36 0 0);
+    --accent: oklch(0.6866 0.1257 18.404);
+    --accent-foreground: oklch(1 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --destructive-foreground: oklch(0.985 0 0);
+    --border: oklch(0.9672 0 0);
+    --input: oklch(0.4017 0 0);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.81 0.1 252);
+    --chart-2: oklch(0.62 0.19 260);
+    --chart-3: oklch(0.55 0.22 263);
+    --chart-4: oklch(0.49 0.22 264);
+    --chart-5: oklch(0.42 0.18 266);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(0.275 0 0);
+    --sidebar-ring: oklch(0.439 0 0);
+    --main-blue: oklch(0.5638 0.1427 245.28);
+    --body-text: oklch(0.356 0 0);
+    --main-red: oklch(0.5762 0.2213 27.04);
+    --light-grey: oklch(0.7219 0 0);
+    --dark-grey: oklch(0.36 0 0);
+    --dark-on-dark: oklch(0.4017 0 0);
+    --light-grey: oklch(0.7219 0 0);
+    --light-blue: oklch(0.9631 0.0173 264.49);
+    --yellow: oklch(0.8147 0.1586 81.19);
+    /* purple hex #7038e8 */
+    --purple: oklch(0.5229 0.2431 289.69);
+    --wrong-input: oklch(0.8118 0.0935 16.83);
+    /* var(--green) */
+    --green: oklch(0.6629 0.1602 152.37);
+    /* var(--bright-pink) */
+    --bright-pink: oklch(0.7347 0.2336 328.85);
+  }

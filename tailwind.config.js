@@ -1,4 +1,4 @@
-const colors = require('./src/ui/colors');
+const colors = require('./src/components/ui/colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,6 +10,8 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ['Inter'],
+        eecfront: ['eecfront'],
+        rightTeous: ['rightTeous'],
       },
       colors,
     },

@@ -1,0 +1,9 @@
+commit_msg=$(cat "$1")
+
+# Check if commit message matches the pattern NOS-XXXX
+if ! echo "$commit_msg" | grep -qE '^NOS-[0-9]{4}'; then
+  echo "❌ Invalid commit message format!"
+  echo "Commit message must start with JIRA ID (e.g., NOS-1001)"
+  echo "Example: NOS-1001 Add login functionality"
+  exit 1
+fi 

@@ -4,7 +4,7 @@ import React from 'react';
 import type { Post } from '@/api';
 import { usePosts } from '@/api';
 import { Card } from '@/components/card';
-import { EmptyList, FocusAwareStatusBar, Text, View } from '@/ui';
+import { EmptyList, FocusAwareStatusBar, Text, View } from '@/components/ui';
 
 export default function Feed() {
   const { data, isPending, isError } = usePosts();
@@ -28,7 +28,6 @@ export default function Feed() {
         renderItem={renderItem}
         keyExtractor={(_, index) => `item-${index}`}
         ListEmptyComponent={<EmptyList isLoading={isPending} />}
-        estimatedItemSize={300}
       />
     </View>
   );
