@@ -1,4 +1,4 @@
-package com.itule.development
+package EuroSolAndroid.development
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

@@ -10,6 +10,8 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ['Inter'],
+        eecfront: ['eecfront'],
+        rightTeous: ['rightTeous'],
       },
       colors,
     },

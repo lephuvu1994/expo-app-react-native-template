@@ -1,4 +1,4 @@
-package com.itule.development
+package EuroSolAndroid.development
 import com.facebook.react.common.assets.ReactFontManager
 
 import android.app.Application

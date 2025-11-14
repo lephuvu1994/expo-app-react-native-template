@@ -1,0 +1,70 @@
+name: Deploy to DEV environment
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Create .env file
+        run: |
+          printf "%s" '${{ secrets.DEV_ENV }}' > .env
+
+      - name: Build Next.js app
+        run: yarn build
+
+      - name: Package build files
+        run: tar -czf build.tar.gz .next public package.json yarn.lock next.config.ts
+
+      - name: Copy files to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DEV_SERVER_HOST }}
+          username: ${{ secrets.DEV_SERVER_USER }}
+          key: ${{ secrets.DEV_SERVER_SSH_KEY }}
+          source: "build.tar.gz"
+          target: "/tmp/"
+
+      - name: Deploy on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEV_SERVER_HOST }}
+          username: ${{ secrets.DEV_SERVER_USER }}
+          key: ${{ secrets.DEV_SERVER_SSH_KEY }}
+          script: |
+            sudo -i <<'EOF'
+            cd /var/www/named_web
+            printf "%s" "${{ secrets.DEV_ENV }}" > .env
+            mv /tmp/build.tar.gz .
+            tar -xzf build.tar.gz
+            rm -f build.tar.gz
+
+            NODE_ENV=production yarn install --immutable
+
+            pm2 describe named_web > /dev/null
+            if [ $? -eq 0 ]; then
+              pm2 reload named_web --update-env
+            else
+              pm2 start yarn --name "named_web" -- start
+            fi
+            pm2 save
+            EOF

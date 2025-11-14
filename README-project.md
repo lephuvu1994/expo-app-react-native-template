@@ -2,7 +2,7 @@
   <img alt="logo" src="./assets/icon.png" width="124px" style="border-radius:10px"/><br/>
 Mobile App </h1>
 
-> This Project is based on [Safiri starter](https://starter.obytes.com)
+> This Project is based on [Expo base starter](https://github.com/lephuvu1994/expo-app-react-native-template)
 
 ## Requirements
 
@@ -10,7 +10,7 @@ Mobile App </h1>
 - [Node.js LTS release](https://nodejs.org/en/)
 - [Git](https://git-scm.com/)
 - [Watchman](https://facebook.github.io/watchman/docs/install#buildinstall), required only for macOS or Linux users
-- [Pnpm](https://pnpm.io/installation)
+- [yarn](https://yarn.io/installation)
 - [Cursor](https://www.cursor.com/) or [VS Code Editor](https://code.visualstudio.com/download) ⚠️ Make sure to install all recommended extension from `.vscode/extensions.json`
 
 ## 👋 Quick start
@@ -22,19 +22,19 @@ git clone https://github.com/user/repo-name
 
 cd ./repo-name
 
-pnpm install
+yarn install
 ```
 
 To run the app on ios
 
 ```sh
-pnpm ios
+yarn ios
 ```
 
 To run the app on Android
 
 ```sh
-pnpm android
+yarn android
 ```
 
 ## ✍️ Documentation

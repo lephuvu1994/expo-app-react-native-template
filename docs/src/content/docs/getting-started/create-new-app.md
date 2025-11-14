@@ -16,15 +16,15 @@ First make sure you have the following tools installed on your machine:
 - [Node.js LTS release](https://nodejs.org/en/)
 - [Git](https://git-scm.com/)
 - [Watchman](https://facebook.github.io/watchman/docs/install#buildinstall), required only for macOS or Linux users
-- [Pnpm](https://pnpm.io/installation)
+- [yarn](https://yarn.io/installation)
 - [Cursor](https://www.cursor.com/) is recommended but you can use [VS Code Editor](https://code.visualstudio.com/download).
 
 ## Initializing a new project
 
-First make sure you have `pnpm` installed on your machine, if not you can install it using the following command:
+First make sure you have `yarn` installed on your machine, if not you can install it using the following command:
 
 ```bash
-npm install -g pnpm
+npm install -g yarn
 ```
 
 Start your project using `create-obytes-app` command:
@@ -88,8 +88,8 @@ If the installation was successful, the created app should be ready to use, and 
 
 ```bash
 # Run the app on iOS simulator
-pnpm ios
+yarn ios
 
 # Run the app on Android simulator
-pnpm android
+yarn android
 ```

@@ -40,6 +40,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     bundleIdentifier: Env.BUNDLE_ID,
     infoPlist: {
       ITSAppUsesNonExemptEncryption: false,
+      deployTarget: '12.0'
     },
   },
   experiments: {

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Safiri.app"
-               BlueprintName = "Safiri"
-               ReferencedContainer = "container:Safiri.xcodeproj">
+               BuildableName = "EuroSol.app"
+               BlueprintName = "EuroSol"
+               ReferencedContainer = "container:EuroSol.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "SafiriTests.xctest"
-               BlueprintName = "SafiriTests"
-               ReferencedContainer = "container:Safiri.xcodeproj">
+               BuildableName = "EuroSolTests.xctest"
+               BlueprintName = "EuroSolTests"
+               ReferencedContainer = "container:EuroSol.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Safiri.app"
-            BlueprintName = "Safiri"
-            ReferencedContainer = "container:Safiri.xcodeproj">
+            BuildableName = "EuroSol.app"
+            BlueprintName = "EuroSol"
+            ReferencedContainer = "container:EuroSol.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Safiri.app"
-            BlueprintName = "Safiri"
-            ReferencedContainer = "container:Safiri.xcodeproj">
+            BuildableName = "EuroSol.app"
+            BlueprintName = "EuroSol"
+            ReferencedContainer = "container:EuroSol.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
