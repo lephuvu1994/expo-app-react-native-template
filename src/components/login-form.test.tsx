@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { cleanup, screen, setup, waitFor } from '@/core/test-utils';
+import { cleanup, screen, setup, waitFor } from '@/lib/test-utils';
 
 import type { LoginFormProps } from './login-form';
 import { LoginForm } from './login-form';
@@ -12,7 +12,7 @@ const onSubmitMock: jest.Mock<LoginFormProps['onSubmit']> = jest.fn();
 describe('LoginForm Form ', () => {
   it('renders correctly', async () => {
     setup(<LoginForm />);
-    expect(await screen.findByText(/Sign in/i)).toBeOnTheScreen();
+    expect(await screen.findByTestId('form-title')).toBeOnTheScreen();
   });
 
   it('should display required error when values are empty', async () => {
@@ -56,10 +56,11 @@ describe('LoginForm Form ', () => {
     // expect.objectContaining({}) because we don't want to test the target event we are receiving from the onSubmit function
     expect(onSubmitMock).toHaveBeenCalledWith(
       {
+        name: '',
         email: 'youssef@gmail.com',
         password: 'password',
       },
-      expect.objectContaining({}),
+      expect.objectContaining({})
     );
   });
 });

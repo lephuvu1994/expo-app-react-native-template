@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import type { ConfigContext, ExpoConfig } from '@expo/config';
 import type { AppIconBadgeConfig } from 'app-icon-badge/types';
 
@@ -26,16 +25,12 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   description: `${Env.NAME} Mobile App`,
   owner: Env.EXPO_ACCOUNT_OWNER,
   scheme: Env.SCHEME,
-  slug: 'obytesapp',
+  slug: 'appsafiri',
   version: Env.VERSION.toString(),
   orientation: 'portrait',
   icon: './assets/icon.png',
   userInterfaceStyle: 'automatic',
-  splash: {
-    image: './assets/splash.png',
-    resizeMode: 'cover',
-    backgroundColor: '#2E3C4B',
-  },
+  newArchEnabled: true,
   updates: {
     fallbackToCacheTimeout: 0,
   },
@@ -43,6 +38,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ios: {
     supportsTablet: true,
     bundleIdentifier: Env.BUNDLE_ID,
+    infoPlist: {
+      ITSAppUsesNonExemptEncryption: false,
+    },
   },
   experiments: {
     typedRoutes: true,
@@ -60,6 +58,14 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   plugins: [
     [
+      'expo-splash-screen',
+      {
+        backgroundColor: '#2E3C4B',
+        image: './assets/splash-icon.png',
+        imageWidth: 150,
+      },
+    ],
+    [
       'expo-font',
       {
         fonts: ['./assets/fonts/Inter.ttf'],
@@ -68,6 +74,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     'expo-localization',
     'expo-router',
     ['app-icon-badge', appIconBadgeConfig],
+    ['react-native-edge-to-edge'],
   ],
   extra: {
     ...ClientEnv,

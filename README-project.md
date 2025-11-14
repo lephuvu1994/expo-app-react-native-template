@@ -2,7 +2,7 @@
   <img alt="logo" src="./assets/icon.png" width="124px" style="border-radius:10px"/><br/>
 Mobile App </h1>
 
-> This Project is based on [Obytes starter](https://starter.obytes.com)
+> This Project is based on [Safiri starter](https://starter.obytes.com)
 
 ## Requirements
 
@@ -10,8 +10,8 @@ Mobile App </h1>
 - [Node.js LTS release](https://nodejs.org/en/)
 - [Git](https://git-scm.com/)
 - [Watchman](https://facebook.github.io/watchman/docs/install#buildinstall), required only for macOS or Linux users
-- [yarn](https://yarn.io/installation)
-- [VS Code Editor](https://code.visualstudio.com/download) ⚠️ Make sure to install all recommended extension from `.vscode/extensions.json`
+- [Pnpm](https://pnpm.io/installation)
+- [Cursor](https://www.cursor.com/) or [VS Code Editor](https://code.visualstudio.com/download) ⚠️ Make sure to install all recommended extension from `.vscode/extensions.json`
 
 ## 👋 Quick start
 
@@ -22,19 +22,19 @@ git clone https://github.com/user/repo-name
 
 cd ./repo-name
 
-yarn install
+pnpm install
 ```
 
 To run the app on ios
 
 ```sh
-yarn ios
+pnpm ios
 ```
 
 To run the app on Android
 
 ```sh
-yarn android
+pnpm android
 ```
 
 ## ✍️ Documentation
